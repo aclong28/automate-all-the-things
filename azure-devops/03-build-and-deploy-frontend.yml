@@ -61,6 +61,7 @@ stages:
     # We update the local repo with a pull just in case there have been any recent modifications
     - script: |
         git checkout -f main
+        git reset --hard origin/main
         git pull origin main
       displayName: Update repo
       condition: always()
@@ -123,6 +124,7 @@ stages:
     # Every time the pipeline performs a "checkout" step it will checkout the same commit, so we need this step to pull for the changes commited in the previous stage   
     - script: |
         git checkout -f main
+        git reset --hard origin/main
         git pull origin main
       displayName: Update repo
       condition: always()
@@ -195,6 +197,7 @@ stages:
     # Every time the pipeline performs a "checkout" step it will checkout the same commit, so we need this step to pull for the changes commited in the previous stage   
     - script: |
         git checkout -f main
+        git reset --hard origin/main
         git pull origin main
       displayName: Update repo
       condition: always()
