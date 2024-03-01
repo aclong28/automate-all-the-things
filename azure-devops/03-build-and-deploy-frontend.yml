@@ -61,7 +61,9 @@ stages:
     # We update the local repo with a pull just in case there have been any recent modifications
     - script: |
         git pull origin main
+        git checkout -f main
       displayName: Update repo
+      condition: always()
 
     - script: |
         sed 's/tag:.*/tag: $(Build.BuildId)/g' helm/my-app/frontend/environments/values-dev.yaml > helm/my-app/frontend/environments/values-dev.temp
@@ -121,7 +123,9 @@ stages:
     # Every time the pipeline performs a "checkout" step it will checkout the same commit, so we need this step to pull for the changes commited in the previous stage   
     - script: |
         git pull origin main
+        git checkout -f main
       displayName: Update repo
+      condition: always()
       
     - script: |
         sed 's/tag:.*/tag: $(Build.BuildId)/g' helm/my-app/frontend/environments/values-stage.yaml > helm/my-app/frontend/environments/values-stage.temp
@@ -191,7 +195,9 @@ stages:
     # Every time the pipeline performs a "checkout" step it will checkout the same commit, so we need this step to pull for the changes commited in the previous stage   
     - script: |
         git pull origin main
+        git checkout -f main
       displayName: Update repo
+      condition: always()
 
     - script: |
         sed 's/tag:.*/tag: $(Build.BuildId)/g' helm/my-app/frontend/environments/values-prod.yaml > helm/my-app/frontend/environments/values-prod.temp
