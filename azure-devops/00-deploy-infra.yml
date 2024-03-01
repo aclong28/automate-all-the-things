@@ -67,8 +67,8 @@ steps:
 
 # We update the local repo with a pull just in case there have been any recent modifications
 - script: |
-    git pull origin main
-    git checkout -f main
+        git checkout -f main
+        git pull origin main
   displayName: Update repo
   condition: always()
 
