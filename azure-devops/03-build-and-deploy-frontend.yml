@@ -192,7 +192,7 @@ stages:
       
     # Every time the pipeline performs a "checkout" step it will checkout the same commit, so we need this step to pull for the changes commited in the previous stage   
     - script: |
-        git pull origin main
+        git pull origin main --rebase
       displayName: Update repo
       condition: always()
 
