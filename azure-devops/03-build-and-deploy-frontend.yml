@@ -57,10 +57,11 @@ stages:
     # In this case it's necessary to specify the checkout with the persistCredential options set to true. This will enable us to push the changes to the repo.
     - checkout: self
       persistCredentials: true
+      clean: true
 
     # We update the local repo with a pull just in case there have been any recent modifications
     - script: |
-        git pull origin main
+        git pull origin main --rebase
       displayName: Update repo
       condition: always()
 
@@ -117,11 +118,11 @@ stages:
     # In this case it's necessary to specify the checkout with the persistCredential options set to true. This will enable us to push the changes to the repo.
     - checkout: self
       persistCredentials: true
-      #clean: true
+      clean: true
   
     # Every time the pipeline performs a "checkout" step it will checkout the same commit, so we need this step to pull for the changes commited in the previous stage   
     - script: |
-        git pull origin main
+        git pull origin main --rebase
       displayName: Update repo
       condition: always()
       
@@ -188,7 +189,7 @@ stages:
     # In this case it's necessary to specify the checkout with the persistCredential options set to true. This will enable us to push the changes to the repo.
     - checkout: self
       persistCredentials: true
-      #clean: true
+      clean: true
       
     # Every time the pipeline performs a "checkout" step it will checkout the same commit, so we need this step to pull for the changes commited in the previous stage   
     - script: |
