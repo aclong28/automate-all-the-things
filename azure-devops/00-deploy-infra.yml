@@ -87,10 +87,10 @@ steps:
 - script: |
     git config --global user.email "AzureDevOps@Build&DeployAppPipeline.com"
     git config --global user.name "Azure DevOps - Build & Deploy App Pipeline"
-    git checkout -b main
+    git checkout main
     git add helm/my-app/backend/environments/
     git commit -m "ElastiCache endpoints updated in environments values.yaml files by Azure DevOps"
-    git push --set-upstream origin main
+    git push origin main
   displayName: 'Push changes to GitHub'
   condition: always()
 
