@@ -5,4 +5,4 @@ deployment:
     tag: 12
   replicas: 1
   env:
-    redis_host:  # This value was modified by the deploy-infra pipeline
+    redis_host: ngao-nghe-vn-dev-elascache-rep-group.7x8qwo.ng.0001.euc1.cache.amazonaws.com # This value was modified by the deploy-infra pipeline
